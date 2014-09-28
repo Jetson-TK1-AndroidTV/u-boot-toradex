@@ -2221,14 +2221,21 @@ static void do_bootm_on_complete(struct usb_ep *ep, struct usb_request *req)
 	char boot_addr_start[12];
 #ifdef CONFIG_FSL_FASTBOOT
 	char *bootm_args[] = { "boota", boot_addr_start, NULL };
+#ifdef CONFIG_CMD_BOOTAI
+	char *bootm_args[] = { "bootai", "ram", boot_addr_start, NULL };
 #else
 	char *bootm_args[] = { "bootm", boot_addr_start, NULL };
 #endif
 
 	puts("Booting kernel..\n");
 
+#ifdef CONFIG_CMD_BOOTAI
+	sprintf(boot_addr_start, "0x%x", CONFIG_USB_FASTBOOT_BUF_ADDR);
+	do_bootai(NULL, 0, 3, bootm_args);
+#else
 	sprintf(boot_addr_start, "0x%lx", load_addr);
 	do_bootm(NULL, 0, 2, bootm_args);
+#endif
 
 	/* This only happens if image is somehow faulty so we start over */
 	do_reset(NULL, 0, 0, NULL);
