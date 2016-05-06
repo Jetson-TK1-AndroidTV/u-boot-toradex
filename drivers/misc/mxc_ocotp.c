@@ -71,7 +71,7 @@
 #error "Unsupported architecture\n"
 #endif
 
-#if defined(CONFIG_MX6) || defined(CONFIG_MX7)
+#if defined(CONFIG_MX6)
 #include <asm/arch/sys_proto.h>
 
 /*
@@ -95,8 +95,7 @@ u32 fuse_bank_physical(int index)
 {
 	u32 phy_index;
 
-	if ((index == 0) || is_cpu_type(MXC_CPU_MX6SL) ||
-	    is_cpu_type(MXC_CPU_MX7D))
+	if ((index == 0) || is_cpu_type(MXC_CPU_MX6SL))
 		phy_index = index;
 	else if (is_cpu_type(MXC_CPU_MX6UL)) {
 		if (index >= 6)

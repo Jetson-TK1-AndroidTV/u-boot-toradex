@@ -115,6 +115,7 @@ int timer_init(void)
 		    is_cpu_type(MXC_CPU_MX6SOLO) ||
 		    is_cpu_type(MXC_CPU_MX6SX) ||
 		    is_cpu_type(MXC_CPU_MX7D) ||
+		    is_cpu_type(MXC_CPU_MX7S) ||
 		    is_cpu_type(MXC_CPU_MX6UL)) {
 			i |= GPTCR_24MEN;
 

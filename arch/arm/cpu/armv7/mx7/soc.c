@@ -122,7 +122,7 @@ u32 __weak get_board_rev(void)
 	u32 cpurev = get_cpu_rev();
 	u32 type = ((cpurev >> 12) & 0xff);
 
-	if (type == MXC_CPU_MX7D)
+	if (type == MXC_CPU_MX7S)
 		cpurev = (MXC_CPU_MX7D) << 12 | (cpurev & 0xFFF);
 
 	return cpurev;
