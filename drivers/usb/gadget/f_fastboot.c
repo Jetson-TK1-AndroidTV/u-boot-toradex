@@ -2341,7 +2341,8 @@ static void cb_reboot_bootloader(struct usb_ep *ep, struct usb_request *req)
 }
 #endif
 
-static void cb_oem(struct usb_ep *ep, struct usb_request *req)
+
+static void cb_reboot(struct usb_ep *ep, struct usb_request *req)
 {
 	char *cmd = req->buf;
 #if defined(CONFIG_TEGRA124)
@@ -2353,6 +2354,10 @@ static void cb_oem(struct usb_ep *ep, struct usb_request *req)
 		fastboot_tx_write_str("OKAY");
 	} else
 #endif
+
+static void cb_oem(struct usb_ep *ep, struct usb_request *req)
+{
+	char *cmd = req->buf;
 	if (strncmp("unlock", cmd + 4, 8) == 0) {
 		fastboot_tx_write_str("FAILnot implemented");
 	}
