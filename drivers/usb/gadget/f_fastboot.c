@@ -2285,9 +2285,6 @@ static void cb_flash(struct usb_ep *ep, struct usb_request *req)
 }
 #endif
 
-static void cb_oem(struct usb_ep *ep, struct usb_request *req)
-{
-	char *cmd = req->buf;
 #if defined(CONFIG_FASTBOOT_FLASH) && defined(CONFIG_FASTBOOT_FLASH_MMC_DEV)
 	if (strncmp("format", cmd + 4, 6) == 0) {
 		char cmdbuf[32];
