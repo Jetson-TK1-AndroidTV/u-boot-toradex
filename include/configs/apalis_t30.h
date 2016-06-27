@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012-2015 Toradex, Inc.
+ * Copyright (c) 2012-2016 Toradex, Inc.
  *
  * Configuration settings for the Toradex Apalis T30 modules.
  *
@@ -14,6 +14,9 @@
 #include "tegra30-common.h"
 
 #define CONFIG_ARCH_MISC_INIT
+
+/* VDD core PMIC */
+#define CONFIG_TEGRA_VDD_CORE_TPS62362_SET_TPS65911_GPIO1
 
 /* High-level configuration options */
 #define V_PROMPT			"Apalis T30 # "
