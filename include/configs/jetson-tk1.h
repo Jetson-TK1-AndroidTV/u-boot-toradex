@@ -57,6 +57,13 @@
 #define CONFIG_GENERIC_MMC
 #define CONFIG_TEGRA_MMC
 #define CONFIG_CMD_MMC
+#define CONFIG_BOUNCE_BUFFER
+#define CONFIG_CMD_EXT2
+#define CONFIG_CMD_EXT4
+#define CONFIG_CMD_EXT4_WRITE
+#define CONFIG_CMD_FAT
+#define CONFIG_CMD_FS_GENERIC
+#define CONFIG_DOS_PARTITION
 
 /* Environment in eMMC, at the end of 2nd "boot sector" */
 #define CONFIG_ENV_IS_IN_MMC
@@ -102,10 +109,10 @@
 
 /* Fastboot support */
 #define CONFIG_CMD_FASTBOOT
-
-#ifdef CONFIG_CMD_FASTBOOT
 #define CONFIG_ANDROID_BOOT_IMAGE
-#define CONFIG_CMD_BOOTAI
+#define CONFIG_FASTBOOT_FLASH
+
+#define CONFIG_CMD_BOOTA
 #define CONFIG_CMD_BOOTAI_IGNORE_HDR_ADDR
 #define MEMORY_BASE                     0x80000000
 #define CONFIG_ADDR_DOWNLOAD            (MEMORY_BASE + 0x12000000)
